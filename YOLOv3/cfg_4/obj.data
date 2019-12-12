@@ -1,0 +1,5 @@
+classes= 4 
+train  = /media/bharatforge/Ubuntu_data/vishal/black_yolo/train.txt  
+valid  = /media/bharatforge/Ubuntu_data/vishal/black_yolo/test.txt  
+names = /media/bharatforge/Ubuntu_data/vishal/black_yolo/obj.names  
+backup = /media/bharatforge/Ubuntu_data/vishal/black_yolo/backup/

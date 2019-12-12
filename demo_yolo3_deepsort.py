@@ -52,7 +52,7 @@ class Detector(object):
             bbox_xcycwh, cls_conf, cls_ids = self.yolo3(im)
             if bbox_xcycwh is not None:
                 # select class person
-                mask = cls_ids==0
+                mask = cls_ids==1
 
                 bbox_xcycwh = bbox_xcycwh[mask]
                 bbox_xcycwh[:,3:] *= 1.2
@@ -77,10 +77,10 @@ class Detector(object):
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("VIDEO_PATH", type=str)
-    parser.add_argument("--yolo_cfg", type=str, default="YOLOv3/cfg/yolo_v3.cfg")
-    parser.add_argument("--yolo_weights", type=str, default="YOLOv3/yolov3.weights")
-    parser.add_argument("--yolo_names", type=str, default="YOLOv3/cfg/coco.names")
+    parser.add_argument("--VIDEO_PATH", type=str, default="/media/bharatforge/Ubuntu_data/vishal/datasets/ODCT_REC_Video/6_dec/VID_20191206_112012.mp4")
+    parser.add_argument("--yolo_cfg", type=str, default="/media/bharatforge/Ubuntu_data/vishal/deep_sort_pytorch/YOLOv3/cfg_4/yolo.cfg")
+    parser.add_argument("--yolo_weights", type=str, default="/media/bharatforge/Ubuntu_data/vishal/deep_sort_pytorch/YOLOv3/cfg_4/yolo_56000.weights")
+    parser.add_argument("--yolo_names", type=str, default="/media/bharatforge/Ubuntu_data/vishal/deep_sort_pytorch/YOLOv3/cfg_4/obj.names")
     parser.add_argument("--conf_thresh", type=float, default=0.5)
     parser.add_argument("--nms_thresh", type=float, default=0.4)
     parser.add_argument("--deepsort_checkpoint", type=str, default="deep_sort/deep/checkpoint/ckpt.t7")
